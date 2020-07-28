@@ -1,0 +1,1763 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Moesif Management API
+servers:
+  - url: 'http:/localhost:3000'
+paths:
+  /actions:
+    post:
+      summary: Track a User Action
+      operationId: TrackAUserAction
+      tags:
+        - Actions
+      parameters:
+        - name: action_name
+          in: query
+          description: A recognizable name such as Clicked Sign Up or Purchased Subscription
+          required: true
+          schema:
+            type: string
+        - name: session_token
+          in: query
+          description: The customer’s current session token as a string.
+          required: false
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          description: The user identifier to associate this action with.
+          required: false
+          schema:
+            type: string
+        - name: company_id
+          in: query
+          description: The company identifier to associate this action with (Helpful for B2B companies).
+          required: false
+          schema:
+            type: string
+        - name: metadata
+          in: query
+          description: An object containing any custom event metadata you want to store with this event.
+          required: false
+          schema:
+            type: object
+        - name: request
+          in: query
+          description: The object containing the action’s request context.
+          required: true
+          schema:
+            type: object
+        - name: time
+          in: query
+          description: Timestamp for the action in ISO 8601 format. Set by server automatically if not set.
+          required: false
+          schema:
+            type: string
+        - name: uri
+          in: query
+          description: 'Full uri customer is on such as https:/wwww.acmeinc.com/pricing?utm_source=adwords including protocol, host, and query string.'
+          required: true
+          schema:
+            type: string
+        - name: ip_address
+          in: query
+          description: 'IP address of the customer, If not set, we extract the remote IP address.'
+          required: false
+          schema:
+            type: string
+        - name: user_agent_string
+          in: query
+          description: The customer’s browser agent string for device context.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  /actions/batch:
+    post:
+      summary: Track User Actions in Batch
+      operationId: TrackUserActionsInBatch
+      tags:
+        - Actions
+      parameters:
+        - name: action_name
+          in: query
+          description: A recognizable name such as Clicked Sign Up or Purchased Subscription
+          required: true
+          schema:
+            type: string
+        - name: session_token
+          in: query
+          description: The customer’s current session token as a string.
+          required: false
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          description: The user identifier to associate this action with.
+          required: false
+          schema:
+            type: string
+        - name: company_id
+          in: query
+          description: The company identifier to associate this action with (Helpful for B2B companies).
+          required: false
+          schema:
+            type: string
+        - name: metadata
+          in: query
+          description: An object containing any custom event metadata you want to store with this event.
+          required: false
+          schema:
+            type: object
+        - name: request
+          in: query
+          description: The object containing the action’s request context.
+          required: true
+          schema:
+            type: object
+        - name: time
+          in: query
+          description: Timestamp for the action in ISO 8601 format. Set by server automatically if not set.
+          required: false
+          schema:
+            type: string
+        - name: uri
+          in: query
+          description: 'Full uri customer is on such as https:/wwww.acmeinc.com/pricing?utm_source=adwords including protocol, host, and query string.'
+          required: true
+          schema:
+            type: string
+        - name: ip_address
+          in: query
+          description: 'IP address of the customer, If not set, we extract the remote IP address.'
+          required: false
+          schema:
+            type: string
+        - name: user_agent_string
+          in: query
+          description: The customer’s browser agent string for device context.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  /users:
+    post:
+      summary: Update a User
+      operationId: UpdateAUser
+      tags:
+        - Users
+      parameters:
+        - name: user_id
+          in: query
+          description: The unique identifier for this user.
+          required: true
+          schema:
+            type: string
+        - name: company_id
+          in: query
+          description: Associate the user with a company (Helpful for B2B companies)
+          required: false
+          schema:
+            type: string
+        - name: session_token
+          in: query
+          description: 'Associate this user with a new API key/session token. This field is append only meaning when you set this field, previously set tokens are not removed.'
+          required: false
+          schema:
+            type: string
+        - name: modified_time
+          in: query
+          description: Last modified time of user profile. Set automatically by Moesif if not provided.
+          required: false
+          schema:
+            type: string
+        - name: ip_address
+          in: query
+          description: Set the user’s last known ip address. Moesif sets this automatically from the user’s most recent API activity if not provided.
+          required: false
+          schema:
+            type: string
+        - name: user_agent_string
+          in: query
+          description: Set the user’s last known user agent. Moesif sets this automatically from the user’s most recent API activity if not provided.
+          required: false
+          schema:
+            type: string
+        - name: campaign
+          in: query
+          description: 'Referrer and UTM parameters to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs'
+          required: false
+          schema:
+            type: object
+        - name: utm_source
+          in: query
+          description: UTM parameter that identifies which site sent the traffic
+          required: false
+          schema:
+            type: string
+        - name: utm_medium
+          in: query
+          description: 'UTM parameter that identifies what type of link was used, such as cost per click or email.'
+          required: false
+          schema:
+            type: string
+        - name: utm_campaign
+          in: query
+          description: UTM parameter that identifies a specific product promotion or strategic campaign.
+          required: false
+          schema:
+            type: string
+        - name: utm_term
+          in: query
+          description: UTM parameter that identifies search terms.
+          required: false
+          schema:
+            type: string
+        - name: utm_content
+          in: query
+          description: 'UTM parameter that identifies what specifically was clicked to bring the user to the site, such as a banner ad or a text link.'
+          required: false
+          schema:
+            type: string
+        - name: referrer
+          in: query
+          description: The referring URI before your domain.
+          required: false
+          schema:
+            type: string
+        - name: referring_domain
+          in: query
+          description: The referring domain of the page that linked to your domain.
+          required: false
+          schema:
+            type: string
+        - name: gclid
+          in: query
+          description: Google click Identifier to track Google Ads
+          required: false
+          schema:
+            type: string
+        - name: metadata
+          in: query
+          description: An object containing user demographics or other properties you want to store with this profile.
+          required: false
+          schema:
+            type: object
+      responses:
+        '200':
+          description: 'Successful Response'
+  /users/batch:
+    post:
+      summary: Update Users in Batch
+      operationId: UpdateUsersInBatch
+      tags:
+        - Users
+      parameters:
+        - name: user_id
+          in: query
+          description: The unique identifier for this user.
+          required: true
+          schema:
+            type: string
+        - name: company_id
+          in: query
+          description: Associate the user with a company (Helpful for B2B companies).
+          required: false
+          schema:
+            type: string
+        - name: session_token
+          in: query
+          description: 'Associate this user with a new API key/session token. This field is append only meaning when you set this field, previously set tokens are not removed.'
+          required: false
+          schema:
+            type: string
+        - name: modified_time
+          in: query
+          description: Last modified time of user profile. Set automatically by Moesif if not provided.
+          required: false
+          schema:
+            type: string
+        - name: ip_address
+          in: query
+          description: Set the user’s last known ip address. Moesif sets this automatically from the user’s most recent API activity if not provided.
+          required: false
+          schema:
+            type: string
+        - name: user_agent_string
+          in: query
+          description: Set the user’s last known user agent. Moesif sets this automatically from the user’s most recent API activity if not provided.
+          required: false
+          schema:
+            type: string
+        - name: campaign
+          in: query
+          description: 'Referrer and UTM parameters to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs.'
+          required: false
+          schema:
+            type: object
+        - name: utm_source
+          in: query
+          description: UTM parameter that identifies which site sent the traffic.
+          required: false
+          schema:
+            type: string
+        - name: utm_medium
+          in: query
+          description: 'UTM parameter that identifies what type of link was used, such as cost per click or email.'
+          required: false
+          schema:
+            type: string
+        - name: utm_campaign
+          in: query
+          description: UTM parameter that identifies a specific product promotion or strategic campaign.
+          required: false
+          schema:
+            type: string
+        - name: utm_term
+          in: query
+          description: UTM parameter that identifies search terms.
+          required: false
+          schema:
+            type: string
+        - name: utm_content
+          in: query
+          description: 'UTM parameter that identifies what specifically was clicked to bring the user to the site, such as a banner ad or a text link.'
+          required: false
+          schema:
+            type: string
+        - name: referrer
+          in: query
+          description: The referring URI before your domain.
+          required: false
+          schema:
+            type: string
+        - name: referring_domain
+          in: query
+          description: The referring domain of the page that linked to your domain.
+          required: false
+          schema:
+            type: string
+        - name: gclid
+          in: query
+          description: Google click Identifier to track Google Ads.
+          required: false
+          schema:
+            type: string
+        - name: metadata
+          in: query
+          description: An object containing user demographics or other properties you want to store with this profile.
+          required: false
+          schema:
+            type: object
+      responses:
+        '200':
+          description: 'Successful Response'
+  /companies:
+    post:
+      summary: Update a Company
+      operationId: UpdateACompany
+      tags:
+        - Companies
+      parameters:
+        - name: company_id
+          in: query
+          description: The unique identifier for this company.
+          required: true
+          schema:
+            type: string
+        - name: company_domain
+          in: query
+          description: 'If set, Moesif will enrich your company profile with publicly available info'
+          required: false
+          schema:
+            type: string
+        - name: session_token
+          in: query
+          description: 'Associate this company with a new API key/session token. This field is append only meaning when you set this field, previously set tokens are not removed.'
+          required: false
+          schema:
+            type: string
+        - name: modified_time
+          in: query
+          description: Last modified time of company profile. Set automatically by Moesif if not provided.
+          required: false
+          schema:
+            type: string
+        - name: ip_address
+          in: query
+          description: Set the company’s last known ip address. Moesif sets this automatically from the user’s most recent API activity if not provided.
+          required: false
+          schema:
+            type: string
+        - name: campaign
+          in: query
+          description: 'Referrer and UTM parameters to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs'
+          required: false
+          schema:
+            type: object
+        - name: utm_source
+          in: query
+          description: UTM parameter that identifies which site sent the traffic
+          required: false
+          schema:
+            type: string
+        - name: utm_medium
+          in: query
+          description: 'UTM parameter that identifies what type of link was used, such as cost per click or email.'
+          required: false
+          schema:
+            type: string
+        - name: utm_campaign
+          in: query
+          description: UTM parameter that identifies a specific product promotion or strategic campaign.
+          required: false
+          schema:
+            type: string
+        - name: utm_term
+          in: query
+          description: UTM parameter that identifies search terms.
+          required: false
+          schema:
+            type: string
+        - name: utm_content
+          in: query
+          description: 'UTM parameter that identifies what specifically was clicked to bring the company to the site, such as a banner ad or a text link.'
+          required: false
+          schema:
+            type: string
+        - name: referrer
+          in: query
+          description: The referring URI before your domain.
+          required: false
+          schema:
+            type: string
+        - name: referring_domain
+          in: query
+          description: The referring domain of the page that linked to your domain.
+          required: false
+          schema:
+            type: string
+        - name: gclid
+          in: query
+          description: Google click Identifier to track Google Ads
+          required: false
+          schema:
+            type: string
+        - name: metadata
+          in: query
+          description: An object containing company demographics or other properties you want to store with this profile.
+          required: false
+          schema:
+            type: object
+      responses:
+        '200':
+          description: 'Successful Response'
+  /companies/batch:
+    post:
+      summary: Update Companies in Batch
+      operationId: UpdateCompaniesInBatch
+      tags:
+        - Companies
+      parameters:
+        - name: company_id
+          in: query
+          description: The unique identifier for this company.
+          required: true
+          schema:
+            type: string
+        - name: company_domain
+          in: query
+          description: 'If set, Moesif will enrich your company profile with publicly available info'
+          required: false
+          schema:
+            type: string
+        - name: session_token
+          in: query
+          description: 'Associate this company with a new API key/session token. This field is append only meaning when you set this field, previously set tokens are not removed.'
+          required: false
+          schema:
+            type: string
+        - name: modified_time
+          in: query
+          description: Last modified time of company profile. Set automatically by Moesif if not provided.
+          required: false
+          schema:
+            type: string
+        - name: ip_address
+          in: query
+          description: Set the company’s last known ip address. Moesif sets this automatically from the user’s most recent API activity if not provided.
+          required: false
+          schema:
+            type: string
+        - name: campaign
+          in: query
+          description: 'Referrer and UTM parameters to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs'
+          required: false
+          schema:
+            type: object
+        - name: utm_source
+          in: query
+          description: UTM parameter that identifies which site sent the traffic
+          required: false
+          schema:
+            type: string
+        - name: utm_medium
+          in: query
+          description: 'UTM parameter that identifies what type of link was used, such as cost per click or email.'
+          required: false
+          schema:
+            type: string
+        - name: utm_campaign
+          in: query
+          description: UTM parameter that identifies a specific product promotion or strategic campaign.
+          required: false
+          schema:
+            type: string
+        - name: utm_term
+          in: query
+          description: UTM parameter that identifies search terms.
+          required: false
+          schema:
+            type: string
+        - name: utm_content
+          in: query
+          description: 'UTM parameter that identifies what specifically was clicked to bring the company to the site, such as a banner ad or a text link.'
+          required: false
+          schema:
+            type: string
+        - name: referrer
+          in: query
+          description: The referring URI before your domain.
+          required: false
+          schema:
+            type: string
+        - name: referring_domain
+          in: query
+          description: The referring domain of the page that linked to your domain.
+          required: false
+          schema:
+            type: string
+        - name: gclid
+          in: query
+          description: Google click Identifier to track Google Ads
+          required: false
+          schema:
+            type: string
+        - name: metadata
+          in: query
+          description: An object containing company demographics or other properties you want to store with this profile.
+          required: false
+          schema:
+            type: object
+      responses:
+        '200':
+          description: 'Successful Response'
+  '/~/dashboards/{dashId}':
+    post:
+      summary: Update a Dashboard
+      operationId: UpdateADashboard
+      tags:
+        - Dashboards
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: dashId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  '/~/dashboard/{dashId}':
+    delete:
+      summary: Delete a Dashboard
+      operationId: DeleteADashboard
+      tags:
+        - Dashboards
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: dashId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: parent_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  '/~/dashboards/{id}/policy/acl':
+    post:
+      summary: Add Dashboards ACL permission
+      operationId: AddDashboardsACLPermission
+      tags:
+        - Dashboards
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: grantee
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: permission
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  /~/dashboard/batch:
+    post:
+      summary: Partial Update Dashboards in Batch
+      operationId: PartialUpdateDashboardsInBatch
+      tags:
+        - Dashboards
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  '/~/dashboard/{id}/copy':
+    post:
+      summary: Copy Dashboard
+      operationId: CopyDashboard
+      tags:
+        - Dashboards
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  /~/dashboards:
+    post:
+      summary: Create New Dashboard
+      operationId: CreateNewDashboard
+      tags:
+        - Dashboards
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  /v1/~/keystore:
+    post:
+      summary: Create New Encrypted key/s
+      operationId: CreateNewEncryptedKey/s
+      tags:
+        - Keystore
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: No description
+          required: false
+          schema:
+            type: See Below
+      responses:
+        '200':
+          description: 'Successful Response'
+  '/v1/~/keystore/{keyId}':
+    get:
+      summary: Get Encrypted key
+      operationId: GetEncryptedKey
+      tags:
+        - Keystore
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: keyId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  /workspaces/access_token:
+    get:
+      summary: Get new Workspace Token
+      operationId: GetNewWorkspaceToken
+      tags:
+        - Workspaces
+      parameters:
+        - name: 200
+          in: query
+          description: Signeken
+          required: success
+          schema:
+            type: OK
+      responses:
+        '200':
+          description: 'Successful Response'
+  /~/workspaces/templates:
+    get:
+      summary: Get Workspace Templates
+      operationId: GetWorkspaceTemplates
+      tags:
+        - Workspaces
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  '/~/workspaces/{id}':
+    post:
+      summary: Update a Workspace
+      operationId: UpdateAWorkspace
+      tags:
+        - Workspaces
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  '/workspaces/public/{id}':
+    get:
+      summary: Get a Public Workspace
+      operationId: GetAPublicWorkspace
+      tags:
+        - Workspaces
+      parameters:
+        - name: id
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  '/~/workspaces/{id}/policy/acl':
+    post:
+      summary: Add ACL permission
+      operationId: AddACLPermission
+      tags:
+        - Workspaces
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: grantee
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: permission
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+  /~/workspaces:
+    post:
+      summary: Create New Workspace
+      operationId: CreateNewWorkspace
+      tags:
+        - Workspaces
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: expiration
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  '/~/workspaces/{id}/comments':
+    post:
+      summary: Create a New Comment
+      operationId: CreateANewComment
+      tags:
+        - Workspaces
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  /~/workspaces/default:
+    post:
+      summary: Create New Workspace
+      operationId: CreateNewWorkspace
+      tags:
+        - Workspaces
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  '/~/cohorts/{cohortId}':
+    post:
+      summary: Update a Cohort
+      operationId: UpdateACohort
+      tags:
+        - Cohorts
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: cohortId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: No description
+          required: false
+          schema:
+            type: See Below
+      responses:
+        '200':
+          description: 'Successful Response'
+  /~/cohorts:
+    post:
+      summary: Create New Cohort
+      operationId: CreateNewCohort
+      tags:
+        - Cohorts
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: No description
+          required: false
+          schema:
+            type: See Below
+      responses:
+        '200':
+          description: 'Successful Response'
+  /~/oauth/tokeninfo:
+    get:
+      summary: Get Token Info
+      operationId: GetTokenInfo
+      tags:
+        - OAuth
+      parameters:
+        - name: scope
+          in: query
+          description: No description
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  /~/oauth/access_tokens:
+    get:
+      summary: Get a new Access Token
+      operationId: GetANewAccessToken
+      tags:
+        - OAuth
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: target
+          in: query
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: scope
+          in: query
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: expiration
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  /url_encoder:
+    post:
+      summary: Encodes a URL
+      operationId: EncodesAURL
+      tags:
+        - URL Encoder
+      parameters:
+        - name: body
+          in: body
+          description: No description
+          required: false
+          schema:
+            type: Url
+      responses:
+        '200':
+          description: 'Successful Response'
+  /~/apps:
+    post:
+      summary: Create a new App
+      operationId: CreateANewApp
+      tags:
+        - Applications
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: No description
+          required: false
+          schema:
+            type: AppCreate
+      responses:
+        '200':
+          description: 'Successful Response'
+  '/~/apps/{id}':
+    post:
+      summary: Update Apps
+      operationId: UpdateApps
+      tags:
+        - Applications
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Successful Response'
+  /health/probe:
+    get:
+      summary: Health Probe
+      operationId: HealthProbe
+      tags:
+        - Health
+      parameters:
+        - name: 200
+          in: query
+          description: Status
+          required: success
+          schema:
+            type: OK
+      responses:
+        '200':
+          description: 'Successful Response'
+  /search/~/search/companymetrics/companies:
+    post:
+      summary: Search CompanyMetrics/Companies
+      operationId: SearchCompanyMetrics/Companies
+      tags:
+        - CompanyMetrics
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: 'The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h'
+          required: false
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: 'The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now'
+          required: false
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: The search definition using the Elasticsearch Query DSL
+          required: false
+          schema:
+            type: See Below
+      responses:
+        '200':
+          description: 'Successful Response'
+  /search/~/search/companymetrics/metrics:
+    post:
+      summary: Search CompanyMetrics/Metrics
+      operationId: SearchCompanyMetrics/Metrics
+      tags:
+        - CompanyMetrics
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: 'The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h'
+          required: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: 'The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now'
+          required: true
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: The search definition using the Elasticsearch Query DSL
+          required: false
+          schema:
+            type: See Below
+      responses:
+        '200':
+          description: 'Successful Response'
+  /search/~/search/usermetrics/metrics:
+    post:
+      summary: Search UserMetrics/Metrics
+      operationId: SearchUserMetrics/Metrics
+      tags:
+        - UserMetrics
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: 'The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h'
+          required: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: 'The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now'
+          required: true
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: The search definition using the Elasticsearch Query DSL
+          required: false
+          schema:
+            type: See Below
+      responses:
+        '200':
+          description: 'Successful Response'
+  /search/~/search/usermetrics/users:
+    post:
+      summary: Search UserMetrics/Users
+      operationId: SearchUserMetrics/Users
+      tags:
+        - UserMetrics
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: 'The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h'
+          required: false
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: 'The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now'
+          required: false
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: The search definition using the Elasticsearch Query DSL
+          required: false
+          schema:
+            type: See Below
+      responses:
+        '200':
+          description: 'Successful Response'
+  /search/~/mappings/companymetrics/properties:
+    get:
+      summary: Get Property Mapping for CompanyMetrics
+      operationId: GetPropertyMappingForCompanyMetrics
+      tags:
+        - Properties
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+  '/search/~/companies/{id}':
+    get:
+      summary: Get a Company
+      operationId: GetACompany
+      tags:
+        - Companies
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+  /search/~/search/companies:
+    post:
+      summary: Search Companies
+      operationId: SearchCompanies
+      tags:
+        - Companies
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: The search definition using the Elasticsearch Query DSL
+          required: false
+          schema:
+            type: See Below
+  /search/~/companies:
+    post:
+      summary: Update a Company
+      operationId: UpdateACompany
+      tags:
+        - Companies
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: No description
+          required: false
+          schema:
+            type: CompanyUpdate
+  /search/~/companies/batch:
+    post:
+      summary: Update Companies in Batch
+      operationId: UpdateCompaniesInBatch
+      tags:
+        - Companies
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: No description
+          required: false
+          schema:
+            type: 'array[object]'
+  /search/~/count/companies:
+    post:
+      summary: Count Companies
+      operationId: CountCompanies
+      tags:
+        - Companies
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: A query to restrict the results specified with the Elasticsearch Query DSL
+          required: false
+          schema:
+            type: See Below
+  /search/~/count/events:
+    post:
+      summary: Count Events
+      operationId: CountEvents
+      tags:
+        - Events
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: 'The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h'
+          required: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: 'The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now'
+          required: true
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: The search definition using the Elasticsearch Query DSL
+          required: false
+          schema:
+            type: See Below
+  /search/~/search/events:
+    post:
+      summary: Search Events
+      operationId: SearchEvents
+      tags:
+        - Events
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: 'The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h'
+          required: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: 'The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now'
+          required: true
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: The search definition using the Elasticsearch Query DSL
+          required: false
+          schema:
+            type: See Below
+  '/search/~/workspaces/{workspaceId}/search':
+    post:
+      summary: Search Events in saved public Workspace
+      operationId: SearchEventsInSavedPublicWorkspace
+      tags:
+        - Events
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: 'The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h'
+          required: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: 'The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now'
+          required: true
+          schema:
+            type: string
+        - name: workspaceId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: The search definition using the Elasticsearch Query DSL
+          required: false
+          schema:
+            type: See Below
+  '/search/~/events/{id}':
+    get:
+      summary: Get an Event
+      operationId: GetAnEvent
+      tags:
+        - Events
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: event_time
+          in: query
+          description: No description
+          required: true
+          schema:
+            type: string
+  /search/~/count/users:
+    post:
+      summary: Count Users
+      operationId: CountUsers
+      tags:
+        - Users
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: A query to restrict the results specified with the Elasticsearch Query DSL
+          required: false
+          schema:
+            type: See Below
+  /search/~/users:
+    post:
+      summary: Update a User
+      operationId: UpdateAUser
+      tags:
+        - Users
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: No description
+          required: false
+          schema:
+            type: UserUpdate
+  /search/~/search/users:
+    post:
+      summary: Search Users
+      operationId: SearchUsers
+      tags:
+        - Users
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: The search definition using the Elasticsearch Query DSL
+          required: false
+          schema:
+            type: See Below
+  /search/~/users/batch:
+    post:
+      summary: Update Users in Batch
+      operationId: UpdateUsersInBatch
+      tags:
+        - Users
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: body
+          in: body
+          description: No description
+          required: false
+          schema:
+            type: 'array[object]'
+  '/search/~/users/{id}':
+    get:
+      summary: Get a User
+      operationId: GetAUser
+      tags:
+        - Users
+      parameters:
+        - name: orgId
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: No description
+          required: false
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: No description
+          required: true
+          schema:
+            type: string

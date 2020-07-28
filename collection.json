@@ -1,0 +1,3891 @@
+{
+	"info": {
+		"_postman_id": "d6bb2722-bc6e-49d0-9bee-bba8819f9781",
+		"name": "Moesif API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Actions",
+			"item": [
+				{
+					"name": "Track a User Action",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/actions?action_name=<string>&session_token=<string>&user_id=<string>&company_id=<string>&metadata=<object>&request=<object>&time=<string>&uri=<string>&ip_address=<string>&user_agent_string=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actions"
+							],
+							"query": [
+								{
+									"key": "action_name",
+									"value": "<string>",
+									"description": "(Required) A recognizable name such as Clicked Sign Up or Purchased Subscription"
+								},
+								{
+									"key": "session_token",
+									"value": "<string>",
+									"description": "The customer’s current session token as a string."
+								},
+								{
+									"key": "user_id",
+									"value": "<string>",
+									"description": "The user identifier to associate this action with."
+								},
+								{
+									"key": "company_id",
+									"value": "<string>",
+									"description": "The company identifier to associate this action with (Helpful for B2B companies)."
+								},
+								{
+									"key": "metadata",
+									"value": "<object>",
+									"description": "An object containing any custom event metadata you want to store with this event."
+								},
+								{
+									"key": "request",
+									"value": "<object>",
+									"description": "(Required) The object containing the action’s request context."
+								},
+								{
+									"key": "time",
+									"value": "<string>",
+									"description": "Timestamp for the action in ISO 8601 format. Set by server automatically if not set."
+								},
+								{
+									"key": "uri",
+									"value": "<string>",
+									"description": "(Required) Full uri customer is on such as https:/wwww.acmeinc.com/pricing?utm_source=adwords including protocol, host, and query string."
+								},
+								{
+									"key": "ip_address",
+									"value": "<string>",
+									"description": "IP address of the customer, If not set, we extract the remote IP address."
+								},
+								{
+									"key": "user_agent_string",
+									"value": "<string>",
+									"description": "The customer’s browser agent string for device context."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/actions?action_name=<string>&session_token=<string>&user_id=<string>&company_id=<string>&metadata=<object>&request=<object>&time=<string>&uri=<string>&ip_address=<string>&user_agent_string=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"actions"
+									],
+									"query": [
+										{
+											"key": "action_name",
+											"value": "<string>"
+										},
+										{
+											"key": "session_token",
+											"value": "<string>"
+										},
+										{
+											"key": "user_id",
+											"value": "<string>"
+										},
+										{
+											"key": "company_id",
+											"value": "<string>"
+										},
+										{
+											"key": "metadata",
+											"value": "<object>"
+										},
+										{
+											"key": "request",
+											"value": "<object>"
+										},
+										{
+											"key": "time",
+											"value": "<string>"
+										},
+										{
+											"key": "uri",
+											"value": "<string>"
+										},
+										{
+											"key": "ip_address",
+											"value": "<string>"
+										},
+										{
+											"key": "user_agent_string",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Track User Actions in Batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/actions/batch?action_name=<string>&session_token=<string>&user_id=<string>&company_id=<string>&metadata=<object>&request=<object>&time=<string>&uri=<string>&ip_address=<string>&user_agent_string=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actions",
+								"batch"
+							],
+							"query": [
+								{
+									"key": "action_name",
+									"value": "<string>",
+									"description": "(Required) A recognizable name such as Clicked Sign Up or Purchased Subscription"
+								},
+								{
+									"key": "session_token",
+									"value": "<string>",
+									"description": "The customer’s current session token as a string."
+								},
+								{
+									"key": "user_id",
+									"value": "<string>",
+									"description": "The user identifier to associate this action with."
+								},
+								{
+									"key": "company_id",
+									"value": "<string>",
+									"description": "The company identifier to associate this action with (Helpful for B2B companies)."
+								},
+								{
+									"key": "metadata",
+									"value": "<object>",
+									"description": "An object containing any custom event metadata you want to store with this event."
+								},
+								{
+									"key": "request",
+									"value": "<object>",
+									"description": "(Required) The object containing the action’s request context."
+								},
+								{
+									"key": "time",
+									"value": "<string>",
+									"description": "Timestamp for the action in ISO 8601 format. Set by server automatically if not set."
+								},
+								{
+									"key": "uri",
+									"value": "<string>",
+									"description": "(Required) Full uri customer is on such as https:/wwww.acmeinc.com/pricing?utm_source=adwords including protocol, host, and query string."
+								},
+								{
+									"key": "ip_address",
+									"value": "<string>",
+									"description": "IP address of the customer, If not set, we extract the remote IP address."
+								},
+								{
+									"key": "user_agent_string",
+									"value": "<string>",
+									"description": "The customer’s browser agent string for device context."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/actions/batch?action_name=<string>&session_token=<string>&user_id=<string>&company_id=<string>&metadata=<object>&request=<object>&time=<string>&uri=<string>&ip_address=<string>&user_agent_string=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"actions",
+										"batch"
+									],
+									"query": [
+										{
+											"key": "action_name",
+											"value": "<string>"
+										},
+										{
+											"key": "session_token",
+											"value": "<string>"
+										},
+										{
+											"key": "user_id",
+											"value": "<string>"
+										},
+										{
+											"key": "company_id",
+											"value": "<string>"
+										},
+										{
+											"key": "metadata",
+											"value": "<object>"
+										},
+										{
+											"key": "request",
+											"value": "<object>"
+										},
+										{
+											"key": "time",
+											"value": "<string>"
+										},
+										{
+											"key": "uri",
+											"value": "<string>"
+										},
+										{
+											"key": "ip_address",
+											"value": "<string>"
+										},
+										{
+											"key": "user_agent_string",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Applications",
+			"item": [
+				{
+					"name": "Create a new App",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/apps",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"apps"
+							],
+							"variable": [
+								{
+									"id": "abaa9af0-1b17-4fba-a254-4d9bbd0e8ad8",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/apps",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"apps"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update Apps",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/apps/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"apps",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "707521b5-80ab-464b-9df5-57eab4bd77d2",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "3df57200-caa5-4c4d-a264-fbec76c6ea1c",
+									"key": "id",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/apps/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"apps",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Cohorts",
+			"item": [
+				{
+					"name": "Create New Cohort",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/cohorts?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"cohorts"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "6f8ad8fc-7d3f-48f9-b30e-46a9a7a7fa45",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/cohorts?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"cohorts"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update a Cohort",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/cohorts/:cohortId?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"cohorts",
+								":cohortId"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "86c130e4-7da0-424f-b42a-eea8fc5108d0",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "9e816ae1-c9a0-45e1-b63c-9eac1490817e",
+									"key": "cohortId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/cohorts/:cohortId?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"cohorts",
+										":cohortId"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "cohortId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "Update a Company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/companies?company_id=<string>&company_domain=<string>&session_token=<string>&modified_time=<string>&ip_address=<string>&campaign=<object>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&referrer=<string>&referring_domain=<string>&gclid=<string>&metadata=<object>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"companies"
+							],
+							"query": [
+								{
+									"key": "company_id",
+									"value": "<string>",
+									"description": "(Required) The unique identifier for this company."
+								},
+								{
+									"key": "company_domain",
+									"value": "<string>",
+									"description": "If set, Moesif will enrich your company profile with publicly available info"
+								},
+								{
+									"key": "session_token",
+									"value": "<string>",
+									"description": "Associate this company with a new API key/session token. This field is append only meaning when you set this field, previously set tokens are not removed."
+								},
+								{
+									"key": "modified_time",
+									"value": "<string>",
+									"description": "Last modified time of company profile. Set automatically by Moesif if not provided."
+								},
+								{
+									"key": "ip_address",
+									"value": "<string>",
+									"description": "Set the company’s last known ip address. Moesif sets this automatically from the user’s most recent API activity if not provided."
+								},
+								{
+									"key": "campaign",
+									"value": "<object>",
+									"description": "Referrer and UTM parameters to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs"
+								},
+								{
+									"key": "utm_source",
+									"value": "<string>",
+									"description": "UTM parameter that identifies which site sent the traffic"
+								},
+								{
+									"key": "utm_medium",
+									"value": "<string>",
+									"description": "UTM parameter that identifies what type of link was used, such as cost per click or email."
+								},
+								{
+									"key": "utm_campaign",
+									"value": "<string>",
+									"description": "UTM parameter that identifies a specific product promotion or strategic campaign."
+								},
+								{
+									"key": "utm_term",
+									"value": "<string>",
+									"description": "UTM parameter that identifies search terms."
+								},
+								{
+									"key": "utm_content",
+									"value": "<string>",
+									"description": "UTM parameter that identifies what specifically was clicked to bring the company to the site, such as a banner ad or a text link."
+								},
+								{
+									"key": "referrer",
+									"value": "<string>",
+									"description": "The referring URI before your domain."
+								},
+								{
+									"key": "referring_domain",
+									"value": "<string>",
+									"description": "The referring domain of the page that linked to your domain."
+								},
+								{
+									"key": "gclid",
+									"value": "<string>",
+									"description": "Google click Identifier to track Google Ads"
+								},
+								{
+									"key": "metadata",
+									"value": "<object>",
+									"description": "An object containing company demographics or other properties you want to store with this profile."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/companies?company_id=<string>&company_domain=<string>&session_token=<string>&modified_time=<string>&ip_address=<string>&campaign=<object>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&referrer=<string>&referring_domain=<string>&gclid=<string>&metadata=<object>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"companies"
+									],
+									"query": [
+										{
+											"key": "company_id",
+											"value": "<string>"
+										},
+										{
+											"key": "company_domain",
+											"value": "<string>"
+										},
+										{
+											"key": "session_token",
+											"value": "<string>"
+										},
+										{
+											"key": "modified_time",
+											"value": "<string>"
+										},
+										{
+											"key": "ip_address",
+											"value": "<string>"
+										},
+										{
+											"key": "campaign",
+											"value": "<object>"
+										},
+										{
+											"key": "utm_source",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_medium",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_campaign",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_term",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_content",
+											"value": "<string>"
+										},
+										{
+											"key": "referrer",
+											"value": "<string>"
+										},
+										{
+											"key": "referring_domain",
+											"value": "<string>"
+										},
+										{
+											"key": "gclid",
+											"value": "<string>"
+										},
+										{
+											"key": "metadata",
+											"value": "<object>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update Companies in Batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/companies/batch?company_id=<string>&company_domain=<string>&session_token=<string>&modified_time=<string>&ip_address=<string>&campaign=<object>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&referrer=<string>&referring_domain=<string>&gclid=<string>&metadata=<object>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"companies",
+								"batch"
+							],
+							"query": [
+								{
+									"key": "company_id",
+									"value": "<string>",
+									"description": "(Required) The unique identifier for this company."
+								},
+								{
+									"key": "company_domain",
+									"value": "<string>",
+									"description": "If set, Moesif will enrich your company profile with publicly available info"
+								},
+								{
+									"key": "session_token",
+									"value": "<string>",
+									"description": "Associate this company with a new API key/session token. This field is append only meaning when you set this field, previously set tokens are not removed."
+								},
+								{
+									"key": "modified_time",
+									"value": "<string>",
+									"description": "Last modified time of company profile. Set automatically by Moesif if not provided."
+								},
+								{
+									"key": "ip_address",
+									"value": "<string>",
+									"description": "Set the company’s last known ip address. Moesif sets this automatically from the user’s most recent API activity if not provided."
+								},
+								{
+									"key": "campaign",
+									"value": "<object>",
+									"description": "Referrer and UTM parameters to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs"
+								},
+								{
+									"key": "utm_source",
+									"value": "<string>",
+									"description": "UTM parameter that identifies which site sent the traffic"
+								},
+								{
+									"key": "utm_medium",
+									"value": "<string>",
+									"description": "UTM parameter that identifies what type of link was used, such as cost per click or email."
+								},
+								{
+									"key": "utm_campaign",
+									"value": "<string>",
+									"description": "UTM parameter that identifies a specific product promotion or strategic campaign."
+								},
+								{
+									"key": "utm_term",
+									"value": "<string>",
+									"description": "UTM parameter that identifies search terms."
+								},
+								{
+									"key": "utm_content",
+									"value": "<string>",
+									"description": "UTM parameter that identifies what specifically was clicked to bring the company to the site, such as a banner ad or a text link."
+								},
+								{
+									"key": "referrer",
+									"value": "<string>",
+									"description": "The referring URI before your domain."
+								},
+								{
+									"key": "referring_domain",
+									"value": "<string>",
+									"description": "The referring domain of the page that linked to your domain."
+								},
+								{
+									"key": "gclid",
+									"value": "<string>",
+									"description": "Google click Identifier to track Google Ads"
+								},
+								{
+									"key": "metadata",
+									"value": "<object>",
+									"description": "An object containing company demographics or other properties you want to store with this profile."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/companies/batch?company_id=<string>&company_domain=<string>&session_token=<string>&modified_time=<string>&ip_address=<string>&campaign=<object>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&referrer=<string>&referring_domain=<string>&gclid=<string>&metadata=<object>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"companies",
+										"batch"
+									],
+									"query": [
+										{
+											"key": "company_id",
+											"value": "<string>"
+										},
+										{
+											"key": "company_domain",
+											"value": "<string>"
+										},
+										{
+											"key": "session_token",
+											"value": "<string>"
+										},
+										{
+											"key": "modified_time",
+											"value": "<string>"
+										},
+										{
+											"key": "ip_address",
+											"value": "<string>"
+										},
+										{
+											"key": "campaign",
+											"value": "<object>"
+										},
+										{
+											"key": "utm_source",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_medium",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_campaign",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_term",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_content",
+											"value": "<string>"
+										},
+										{
+											"key": "referrer",
+											"value": "<string>"
+										},
+										{
+											"key": "referring_domain",
+											"value": "<string>"
+										},
+										{
+											"key": "gclid",
+											"value": "<string>"
+										},
+										{
+											"key": "metadata",
+											"value": "<object>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update a Company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/companies?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"companies"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "e276ebf2-67cf-4e86-940d-39b72ebeaf2b",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/companies/:id?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"companies",
+								":id"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "ebbef8bd-0c76-4ed8-b8d4-b00731dc300d",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "34c6a3a3-e08b-44cf-82d6-a0f406bc5a0b",
+									"key": "id",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Companies in Batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/companies/batch?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"companies",
+								"batch"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "2ee2f870-d28d-46fd-aae6-74d7f36732d6",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Companies",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/count/companies?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"count",
+								"companies"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "(Required) No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "a8bd8607-bfe4-44d6-b26d-2a668196de1c",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Property Mapping for CompanyMetrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/mappings/companymetrics/properties?app_id=<string>&from=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"mappings",
+								"companymetrics",
+								"properties"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "(Required) No description"
+								},
+								{
+									"key": "from",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "1bc35fd9-cd04-4939-afc7-63af131ae07b",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Dashboards",
+			"item": [
+				{
+					"name": "Delete a Dashboard",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/dashboard/:dashId?app_id=<string>&parent_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"dashboard",
+								":dashId"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								},
+								{
+									"key": "parent_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "2773821f-9f89-4bbd-b7b1-3b48dfc55cc6",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "e78e02c2-d74e-4273-9e9c-09db196a3775",
+									"key": "dashId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/dashboard/:dashId?app_id=<string>&parent_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"dashboard",
+										":dashId"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										},
+										{
+											"key": "parent_id",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "dashId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Partial Update Dashboards in Batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/dashboard/batch?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"dashboard",
+								"batch"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "2b56ef67-4ed8-435d-bc1f-b68994040333",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/dashboard/batch?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"dashboard",
+										"batch"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Copy Dashboard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/dashboard/:id/copy?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"dashboard",
+								":id",
+								"copy"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "bff76a10-d3b0-46d7-a896-20c082be7f9e",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "63b83553-d9e1-48a6-98ec-670fb649bfea",
+									"key": "id",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/dashboard/:id/copy?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"dashboard",
+										":id",
+										"copy"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Create New Dashboard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/dashboards?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"dashboards"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "0f0191f2-4135-44b6-942d-bd929d66b27a",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/dashboards?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"dashboards"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update a Dashboard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/dashboards/:dashId?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"dashboards",
+								":dashId"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "06712b0c-15af-49b1-a92e-4f9e77c9b84e",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "fa940907-fbd8-43bd-abc1-996733c63844",
+									"key": "dashId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/dashboards/:dashId?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"dashboards",
+										":dashId"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "dashId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Add Dashboards ACL permission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/dashboards/:id/policy/acl?app_id=<string>&grantee=<string>&permission=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"dashboards",
+								":id",
+								"policy",
+								"acl"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								},
+								{
+									"key": "grantee",
+									"value": "<string>",
+									"description": "No description"
+								},
+								{
+									"key": "permission",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "b362acf7-f19a-4fb2-9b27-198f82865081",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "3b2318e0-4a6e-47ba-9196-2ba4c9a3697e",
+									"key": "id",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/dashboards/:id/policy/acl?app_id=<string>&grantee=<string>&permission=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"dashboards",
+										":id",
+										"policy",
+										"acl"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										},
+										{
+											"key": "grantee",
+											"value": "<string>"
+										},
+										{
+											"key": "permission",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Get an Event",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/events/:id?app_id=<string>&event_time=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"events",
+								":id"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								},
+								{
+									"key": "event_time",
+									"value": "<string>",
+									"description": "(Required) No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "bf3dd78c-a00b-47f8-8da5-a32768cc03a2",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "5467a7eb-6c6e-4453-a2f3-883080de4313",
+									"key": "id",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Events in saved public Workspace",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/workspaces/:workspaceId/search?app_id=<string>&from=<string>&to=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"workspaces",
+								":workspaceId",
+								"search"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								},
+								{
+									"key": "from",
+									"value": "<string>",
+									"description": "(Required) The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h"
+								},
+								{
+									"key": "to",
+									"value": "<string>",
+									"description": "(Required) The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now"
+								}
+							],
+							"variable": [
+								{
+									"id": "1b6c6935-81bb-479f-a449-90d6a841eddf",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "ec9b0c68-62b6-4c4b-bebb-196dcd09ca53",
+									"key": "workspaceId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Events",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/count/events?app_id=<string>&from=<string>&to=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"count",
+								"events"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								},
+								{
+									"key": "from",
+									"value": "<string>",
+									"description": "(Required) The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h"
+								},
+								{
+									"key": "to",
+									"value": "<string>",
+									"description": "(Required) The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now"
+								}
+							],
+							"variable": [
+								{
+									"id": "024038e0-7078-4ca0-a809-77e0436b6dbb",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Health Probe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/health/probe?=<OK>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"health",
+								"probe"
+							],
+							"query": [
+								{
+									"key": 200,
+									"value": "<OK>",
+									"description": "(Required) Status"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/health/probe?200=<OK>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"health",
+										"probe"
+									],
+									"query": [
+										{
+											"key": "200",
+											"value": "<OK>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "OAuth",
+			"item": [
+				{
+					"name": "Get Token Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/oauth/tokeninfo?scope=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"oauth",
+								"tokeninfo"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "<string>",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/oauth/tokeninfo?scope=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"oauth",
+										"tokeninfo"
+									],
+									"query": [
+										{
+											"key": "scope",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get a new Access Token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/oauth/access_tokens?app_id=<string>&target=<string>&scope=<string>&expiration=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"oauth",
+								"access_tokens"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								},
+								{
+									"key": "target",
+									"value": "<string>",
+									"description": "(Required) No description"
+								},
+								{
+									"key": "scope",
+									"value": "<string>",
+									"description": "(Required) No description"
+								},
+								{
+									"key": "expiration",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "ec5ebe2d-9630-45e6-9dd2-2f3f6bc58e03",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/oauth/access_tokens?app_id=<string>&target=<string>&scope=<string>&expiration=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"oauth",
+										"access_tokens"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										},
+										{
+											"key": "target",
+											"value": "<string>"
+										},
+										{
+											"key": "scope",
+											"value": "<string>"
+										},
+										{
+											"key": "expiration",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get Encrypted key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/~/keystore/:keyId?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"~",
+								"keystore",
+								":keyId"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "a4511636-1a07-485f-bf14-b34ba6c8cda7",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "1483c923-f527-4ab3-bc27-dec8c10f2c3e",
+									"key": "keyId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/~/keystore/:keyId?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"~",
+										"keystore",
+										":keyId"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "keyId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Create New Encrypted key/s",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/~/keystore?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"~",
+								"keystore"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "aefcd3b0-3e9f-4589-bb34-a0bbe169fdd7",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/~/keystore?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"~",
+										"keystore"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "companymetrics",
+					"item": [
+						{
+							"name": "Search CompanyMetrics/Companies",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/search/~/search/companymetrics/companies?app_id=<string>&from=<string>&to=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"search",
+										"~",
+										"search",
+										"companymetrics",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>",
+											"description": "No description"
+										},
+										{
+											"key": "from",
+											"value": "<string>",
+											"description": "The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h"
+										},
+										{
+											"key": "to",
+											"value": "<string>",
+											"description": "The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now"
+										}
+									],
+									"variable": [
+										{
+											"id": "508cca5e-83e0-448e-9f83-6736c9203e15",
+											"key": "orgId",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) No description"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/search/~/search/companymetrics/companies?app_id=<string>&from=<string>&to=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"search",
+												"~",
+												"search",
+												"companymetrics",
+												"companies"
+											],
+											"query": [
+												{
+													"key": "app_id",
+													"value": "<string>"
+												},
+												{
+													"key": "from",
+													"value": "<string>"
+												},
+												{
+													"key": "to",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Search CompanyMetrics/Metrics",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/search/~/search/companymetrics/metrics?app_id=<string>&from=<string>&to=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"search",
+										"~",
+										"search",
+										"companymetrics",
+										"metrics"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>",
+											"description": "No description"
+										},
+										{
+											"key": "from",
+											"value": "<string>",
+											"description": "(Required) The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h"
+										},
+										{
+											"key": "to",
+											"value": "<string>",
+											"description": "(Required) The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now"
+										}
+									],
+									"variable": [
+										{
+											"id": "53478004-7835-488d-ab2d-5518c1e0d53a",
+											"key": "orgId",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) No description"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/search/~/search/companymetrics/metrics?app_id=<string>&from=<string>&to=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"search",
+												"~",
+												"search",
+												"companymetrics",
+												"metrics"
+											],
+											"query": [
+												{
+													"key": "app_id",
+													"value": "<string>"
+												},
+												{
+													"key": "from",
+													"value": "<string>"
+												},
+												{
+													"key": "to",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "usermetrics",
+					"item": [
+						{
+							"name": "Search UserMetrics/Metrics",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/search/~/search/usermetrics/metrics?app_id=<string>&from=<string>&to=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"search",
+										"~",
+										"search",
+										"usermetrics",
+										"metrics"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>",
+											"description": "No description"
+										},
+										{
+											"key": "from",
+											"value": "<string>",
+											"description": "(Required) The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h"
+										},
+										{
+											"key": "to",
+											"value": "<string>",
+											"description": "(Required) The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now"
+										}
+									],
+									"variable": [
+										{
+											"id": "24eb394a-d8e1-47dc-a59b-c2a611ba3d69",
+											"key": "orgId",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) No description"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/search/~/search/usermetrics/metrics?app_id=<string>&from=<string>&to=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"search",
+												"~",
+												"search",
+												"usermetrics",
+												"metrics"
+											],
+											"query": [
+												{
+													"key": "app_id",
+													"value": "<string>"
+												},
+												{
+													"key": "from",
+													"value": "<string>"
+												},
+												{
+													"key": "to",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Search UserMetrics/Users",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/search/~/search/usermetrics/users?app_id=<string>&from=<string>&to=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"search",
+										"~",
+										"search",
+										"usermetrics",
+										"users"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>",
+											"description": "No description"
+										},
+										{
+											"key": "from",
+											"value": "<string>",
+											"description": "The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h"
+										},
+										{
+											"key": "to",
+											"value": "<string>",
+											"description": "The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now"
+										}
+									],
+									"variable": [
+										{
+											"id": "7fb2667a-4ced-49e5-a49c-e3b6059f19ff",
+											"key": "orgId",
+											"value": "<string>",
+											"type": "string",
+											"description": "(Required) No description"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Successful Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/search/~/search/usermetrics/users?app_id=<string>&from=<string>&to=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"search",
+												"~",
+												"search",
+												"usermetrics",
+												"users"
+											],
+											"query": [
+												{
+													"key": "app_id",
+													"value": "<string>"
+												},
+												{
+													"key": "from",
+													"value": "<string>"
+												},
+												{
+													"key": "to",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Search Companies",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/search/companies?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"search",
+								"companies"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "251e0f94-eb6f-46d0-8cb0-026779704617",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Events",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/search/events?app_id=<string>&from=<string>&to=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"search",
+								"events"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								},
+								{
+									"key": "from",
+									"value": "<string>",
+									"description": "(Required) The start date, which can be absolute such as 2019-07-01T00:00:00Z or relative such as -24h"
+								},
+								{
+									"key": "to",
+									"value": "<string>",
+									"description": "(Required) The end date, which can be absolute such as 2019-07-02T00:00:00Z or relative such as now"
+								}
+							],
+							"variable": [
+								{
+									"id": "69f23470-13d0-41da-811c-70eb6d14d247",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/search/users?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"search",
+								"users"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "65b00f50-4f0a-481b-8b83-e2c944de402f",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "URL Encoder",
+			"item": [
+				{
+					"name": "Encodes a URL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/url_encoder",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"url_encoder"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/url_encoder",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"url_encoder"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Update a User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users?user_id=<string>&company_id=<string>&session_token=<string>&modified_time=<string>&ip_address=<string>&user_agent_string=<string>&campaign=<object>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&referrer=<string>&referring_domain=<string>&gclid=<string>&metadata=<object>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "<string>",
+									"description": "(Required) The unique identifier for this user."
+								},
+								{
+									"key": "company_id",
+									"value": "<string>",
+									"description": "Associate the user with a company (Helpful for B2B companies)"
+								},
+								{
+									"key": "session_token",
+									"value": "<string>",
+									"description": "Associate this user with a new API key/session token. This field is append only meaning when you set this field, previously set tokens are not removed."
+								},
+								{
+									"key": "modified_time",
+									"value": "<string>",
+									"description": "Last modified time of user profile. Set automatically by Moesif if not provided."
+								},
+								{
+									"key": "ip_address",
+									"value": "<string>",
+									"description": "Set the user’s last known ip address. Moesif sets this automatically from the user’s most recent API activity if not provided."
+								},
+								{
+									"key": "user_agent_string",
+									"value": "<string>",
+									"description": "Set the user’s last known user agent. Moesif sets this automatically from the user’s most recent API activity if not provided."
+								},
+								{
+									"key": "campaign",
+									"value": "<object>",
+									"description": "Referrer and UTM parameters to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs"
+								},
+								{
+									"key": "utm_source",
+									"value": "<string>",
+									"description": "UTM parameter that identifies which site sent the traffic"
+								},
+								{
+									"key": "utm_medium",
+									"value": "<string>",
+									"description": "UTM parameter that identifies what type of link was used, such as cost per click or email."
+								},
+								{
+									"key": "utm_campaign",
+									"value": "<string>",
+									"description": "UTM parameter that identifies a specific product promotion or strategic campaign."
+								},
+								{
+									"key": "utm_term",
+									"value": "<string>",
+									"description": "UTM parameter that identifies search terms."
+								},
+								{
+									"key": "utm_content",
+									"value": "<string>",
+									"description": "UTM parameter that identifies what specifically was clicked to bring the user to the site, such as a banner ad or a text link."
+								},
+								{
+									"key": "referrer",
+									"value": "<string>",
+									"description": "The referring URI before your domain."
+								},
+								{
+									"key": "referring_domain",
+									"value": "<string>",
+									"description": "The referring domain of the page that linked to your domain."
+								},
+								{
+									"key": "gclid",
+									"value": "<string>",
+									"description": "Google click Identifier to track Google Ads"
+								},
+								{
+									"key": "metadata",
+									"value": "<object>",
+									"description": "An object containing user demographics or other properties you want to store with this profile."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users?user_id=<string>&company_id=<string>&session_token=<string>&modified_time=<string>&ip_address=<string>&user_agent_string=<string>&campaign=<object>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&referrer=<string>&referring_domain=<string>&gclid=<string>&metadata=<object>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "<string>"
+										},
+										{
+											"key": "company_id",
+											"value": "<string>"
+										},
+										{
+											"key": "session_token",
+											"value": "<string>"
+										},
+										{
+											"key": "modified_time",
+											"value": "<string>"
+										},
+										{
+											"key": "ip_address",
+											"value": "<string>"
+										},
+										{
+											"key": "user_agent_string",
+											"value": "<string>"
+										},
+										{
+											"key": "campaign",
+											"value": "<object>"
+										},
+										{
+											"key": "utm_source",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_medium",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_campaign",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_term",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_content",
+											"value": "<string>"
+										},
+										{
+											"key": "referrer",
+											"value": "<string>"
+										},
+										{
+											"key": "referring_domain",
+											"value": "<string>"
+										},
+										{
+											"key": "gclid",
+											"value": "<string>"
+										},
+										{
+											"key": "metadata",
+											"value": "<object>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update Users in Batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/batch?user_id=<string>&company_id=<string>&session_token=<string>&modified_time=<string>&ip_address=<string>&user_agent_string=<string>&campaign=<object>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&referrer=<string>&referring_domain=<string>&gclid=<string>&metadata=<object>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"batch"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "<string>",
+									"description": "(Required) The unique identifier for this user."
+								},
+								{
+									"key": "company_id",
+									"value": "<string>",
+									"description": "Associate the user with a company (Helpful for B2B companies)."
+								},
+								{
+									"key": "session_token",
+									"value": "<string>",
+									"description": "Associate this user with a new API key/session token. This field is append only meaning when you set this field, previously set tokens are not removed."
+								},
+								{
+									"key": "modified_time",
+									"value": "<string>",
+									"description": "Last modified time of user profile. Set automatically by Moesif if not provided."
+								},
+								{
+									"key": "ip_address",
+									"value": "<string>",
+									"description": "Set the user’s last known ip address. Moesif sets this automatically from the user’s most recent API activity if not provided."
+								},
+								{
+									"key": "user_agent_string",
+									"value": "<string>",
+									"description": "Set the user’s last known user agent. Moesif sets this automatically from the user’s most recent API activity if not provided."
+								},
+								{
+									"key": "campaign",
+									"value": "<object>",
+									"description": "Referrer and UTM parameters to track effectiveness of your acquisition channels. Set automatically by moesif-browser-js, but not with server side SDKs."
+								},
+								{
+									"key": "utm_source",
+									"value": "<string>",
+									"description": "UTM parameter that identifies which site sent the traffic."
+								},
+								{
+									"key": "utm_medium",
+									"value": "<string>",
+									"description": "UTM parameter that identifies what type of link was used, such as cost per click or email."
+								},
+								{
+									"key": "utm_campaign",
+									"value": "<string>",
+									"description": "UTM parameter that identifies a specific product promotion or strategic campaign."
+								},
+								{
+									"key": "utm_term",
+									"value": "<string>",
+									"description": "UTM parameter that identifies search terms."
+								},
+								{
+									"key": "utm_content",
+									"value": "<string>",
+									"description": "UTM parameter that identifies what specifically was clicked to bring the user to the site, such as a banner ad or a text link."
+								},
+								{
+									"key": "referrer",
+									"value": "<string>",
+									"description": "The referring URI before your domain."
+								},
+								{
+									"key": "referring_domain",
+									"value": "<string>",
+									"description": "The referring domain of the page that linked to your domain."
+								},
+								{
+									"key": "gclid",
+									"value": "<string>",
+									"description": "Google click Identifier to track Google Ads."
+								},
+								{
+									"key": "metadata",
+									"value": "<object>",
+									"description": "An object containing user demographics or other properties you want to store with this profile."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/batch?user_id=<string>&company_id=<string>&session_token=<string>&modified_time=<string>&ip_address=<string>&user_agent_string=<string>&campaign=<object>&utm_source=<string>&utm_medium=<string>&utm_campaign=<string>&utm_term=<string>&utm_content=<string>&referrer=<string>&referring_domain=<string>&gclid=<string>&metadata=<object>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"batch"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "<string>"
+										},
+										{
+											"key": "company_id",
+											"value": "<string>"
+										},
+										{
+											"key": "session_token",
+											"value": "<string>"
+										},
+										{
+											"key": "modified_time",
+											"value": "<string>"
+										},
+										{
+											"key": "ip_address",
+											"value": "<string>"
+										},
+										{
+											"key": "user_agent_string",
+											"value": "<string>"
+										},
+										{
+											"key": "campaign",
+											"value": "<object>"
+										},
+										{
+											"key": "utm_source",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_medium",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_campaign",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_term",
+											"value": "<string>"
+										},
+										{
+											"key": "utm_content",
+											"value": "<string>"
+										},
+										{
+											"key": "referrer",
+											"value": "<string>"
+										},
+										{
+											"key": "referring_domain",
+											"value": "<string>"
+										},
+										{
+											"key": "gclid",
+											"value": "<string>"
+										},
+										{
+											"key": "metadata",
+											"value": "<object>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update a User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/users?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"users"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "756f2071-edf1-43f1-928d-5bade946940a",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Users in Batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/users/batch?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"users",
+								"batch"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "4e0b6ccd-2176-4685-a899-53f693fa1e1b",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/users/:id?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"users",
+								":id"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "ee299c34-f0dd-41d9-be90-d648126af8f4",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "e7b9d8bb-68c4-42c5-8dba-45c4d44ebcb2",
+									"key": "id",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/~/count/users?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"~",
+								"count",
+								"users"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "(Required) No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "b0aa4bb9-2881-4d26-ae1b-0f6ddae6ceda",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Workspaces",
+			"item": [
+				{
+					"name": "Get new Workspace Token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/workspaces/access_token?=<OK>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"workspaces",
+								"access_token"
+							],
+							"query": [
+								{
+									"key": 200,
+									"value": "<OK>",
+									"description": "(Required) Signeken"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/workspaces/access_token?200=<OK>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"workspaces",
+										"access_token"
+									],
+									"query": [
+										{
+											"key": "200",
+											"value": "<OK>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get a Public Workspace",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/workspaces/public/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"workspaces",
+								"public",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "00cd9f27-eedc-404b-be1b-d5dcb868f5b5",
+									"key": "id",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/workspaces/public/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"workspaces",
+										"public",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update a Workspace",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/workspaces/:id?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"workspaces",
+								":id"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "107d3080-17ea-422c-bf48-16067e525d4c",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "ed0e9e5b-7239-4f2b-aef2-1e51d65e9880",
+									"key": "id",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/workspaces/:id?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"workspaces",
+										":id"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Add ACL permission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/workspaces/:id/policy/acl?app_id=<string>&grantee=<string>&permission=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"workspaces",
+								":id",
+								"policy",
+								"acl"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								},
+								{
+									"key": "grantee",
+									"value": "<string>",
+									"description": "No description"
+								},
+								{
+									"key": "permission",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "2fcbb068-bf21-4194-807f-402eef5b7e06",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "762bec59-ed66-4f64-9a8e-2fcdd0286fde",
+									"key": "id",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a New Comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/workspaces/:id/comments?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"workspaces",
+								":id",
+								"comments"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "e7a78b65-98b2-4a87-9754-cc80394eabad",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								},
+								{
+									"id": "f773003f-5f8d-42c4-98c0-0af1e8c8aa26",
+									"key": "id",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/workspaces/:id/comments?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"workspaces",
+										":id",
+										"comments"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Create New Workspace",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/workspaces?app_id=<string>&expiration=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"workspaces"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								},
+								{
+									"key": "expiration",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "1622996f-4b28-43a8-ac1b-3813c2f68f0d",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/workspaces?app_id=<string>&expiration=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"workspaces"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										},
+										{
+											"key": "expiration",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get Workspace Templates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/workspaces/templates?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"workspaces",
+								"templates"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "419f3dba-500a-45b5-b2a0-69341d7d627f",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/workspaces/templates?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"workspaces",
+										"templates"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Create New Workspace",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/~/workspaces/default?app_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"~",
+								"workspaces",
+								"default"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "<string>",
+									"description": "(Required) No description"
+								}
+							],
+							"variable": [
+								{
+									"id": "258ec2dc-dbed-4a8f-9e42-19d2660a0f17",
+									"key": "orgId",
+									"value": "<string>",
+									"type": "string",
+									"description": "(Required) No description"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/~/workspaces/default?app_id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"~",
+										"workspaces",
+										"default"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "http:/localhost:3000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
